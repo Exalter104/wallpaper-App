@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wallpaper_app/views/components/getx_localization.dart/language.dart';
 import 'package:wallpaper_app/views/screens/home.dart';
+
+import 'views/components/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +11,20 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+        translations: Languages(),
+        locale: const Locale(
+            'en', 'US'), // translations will be displayed in that locale
+        fallbackLocale: const Locale('en', 'UK'),
         title: 'Exarth Wallpaper',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 0, 0, 0)),
           useMaterial3: true,
         ),
-        home: const HomeScreen());
+        home: const HomeScreen(),
+        getPages: AppRoutes.appRoutes());
   }
 }
