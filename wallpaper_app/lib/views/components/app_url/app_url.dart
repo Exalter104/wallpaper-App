@@ -1,4 +1,5 @@
 class AppUrl {
-  static const String baseUrl = "https://cybersyncdev.pythonanywhere.com";
-  static const String registerUrl = "$baseUrl/auth/registration/";
+  static const String baseUrl = "https://api.pexels.com/v1";
+
+  static const String curatedWallpaper = "$baseUrl/curated?per_page=80";
 }

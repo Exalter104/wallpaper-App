@@ -1,8 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:wallpaper_app/views/components/utils/utils.dart';
 
 class CategoriesSection extends StatelessWidget {
-  const CategoriesSection({super.key});
+  String imgUrls;
+  final String text;
+  CategoriesSection({
+    Key? key,
+    required this.imgUrls,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +20,7 @@ class CategoriesSection extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(17),
             child: Image.network(
-                height: 55,
-                width: 100,
-                fit: BoxFit.cover,
-                "https://images.pexels.com/photos/7988113/pexels-photo-7988113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                height: 55, width: 100, fit: BoxFit.cover, imgUrls),
           ),
           Container(
             height: 50,
@@ -27,7 +32,7 @@ class CategoriesSection extends StatelessWidget {
             left: 20,
             top: 14,
             child: Text(
-              "Softwears",
+              text,
               style: SafeGoogleFont("Monsterrate",
                   color: Colors.white, fontWeight: FontWeight.bold),
             ),
